@@ -10,7 +10,7 @@ tera = "1.19.1"
 static-files = "0.2.1"
 lazy_static = "1.4.0"
 serde = { version = "1.0.205", features = ["derive"] }
-rust_decimal = { version = "1.33.1", features = [
+rust_decimal = { version = "1.36.0", features = [
     "serde-str",
     "serde-with-str",
 ] }
