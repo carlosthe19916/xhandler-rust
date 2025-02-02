@@ -1,5 +1,5 @@
-import * as React from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { Content, PageSection } from "@patternfly/react-core";
 
 export const Route = createFileRoute("/")({
   component: HomeComponent,
@@ -7,8 +7,13 @@ export const Route = createFileRoute("/")({
 
 function HomeComponent() {
   return (
-    <div className="p-2">
-      <h3>Welcome Home!</h3>
-    </div>
+    <>
+      <PageSection variant="default">
+        <Content>
+          <h1>Openubl</h1>
+          <p>Fully hosted and managed service</p>
+        </Content>
+      </PageSection>
+    </>
   );
 }
