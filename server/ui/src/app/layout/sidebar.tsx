@@ -43,6 +43,18 @@ export const SidebarApp: React.FC = () => {
               About
             </Link>
           </li>
+          <li className={ITEM_CLASS}>
+            <Link
+              to="/credentials"
+              className={css(LINK_CLASS)}
+              activeProps={{
+                className: css(LINK_CLASS, ACTIVE_LINK_CLASS),
+              }}
+              activeOptions={{ exact: true }}
+            >
+              Credenciales
+            </Link>
+          </li>
         </NavList>
       </Nav>
     );

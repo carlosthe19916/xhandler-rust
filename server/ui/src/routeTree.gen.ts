@@ -10,40 +10,54 @@
 
 // Import Routes
 
-import { Route as rootRoute } from "./routes/__root"
-import { Route as AboutImport } from "./routes/about"
-import { Route as IndexImport } from "./routes/index"
+import { Route as rootRoute } from './routes/__root'
+import { Route as CredentialsImport } from './routes/credentials'
+import { Route as AboutImport } from './routes/about'
+import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
 
+const CredentialsRoute = CredentialsImport.update({
+  id: '/credentials',
+  path: '/credentials',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const AboutRoute = AboutImport.update({
-  id: "/about",
-  path: "/about",
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRoute,
 } as any)
 
 const IndexRoute = IndexImport.update({
-  id: "/",
-  path: "/",
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
 
-declare module "@tanstack/react-router" {
+declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    "/": {
-      id: "/"
-      path: "/"
-      fullPath: "/"
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    "/about": {
-      id: "/about"
-      path: "/about"
-      fullPath: "/about"
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
       preLoaderRoute: typeof AboutImport
+      parentRoute: typeof rootRoute
+    }
+    '/credentials': {
+      id: '/credentials'
+      path: '/credentials'
+      fullPath: '/credentials'
+      preLoaderRoute: typeof CredentialsImport
       parentRoute: typeof rootRoute
     }
   }
@@ -52,38 +66,43 @@ declare module "@tanstack/react-router" {
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-  "/": typeof IndexRoute
-  "/about": typeof AboutRoute
+  '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/credentials': typeof CredentialsRoute
 }
 
 export interface FileRoutesByTo {
-  "/": typeof IndexRoute
-  "/about": typeof AboutRoute
+  '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/credentials': typeof CredentialsRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  "/": typeof IndexRoute
-  "/about": typeof AboutRoute
+  '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/credentials': typeof CredentialsRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: "/" | "/about"
+  fullPaths: '/' | '/about' | '/credentials'
   fileRoutesByTo: FileRoutesByTo
-  to: "/" | "/about"
-  id: "__root__" | "/" | "/about"
+  to: '/' | '/about' | '/credentials'
+  id: '__root__' | '/' | '/about' | '/credentials'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  CredentialsRoute: typeof CredentialsRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  CredentialsRoute: CredentialsRoute,
 }
 
 export const routeTree = rootRoute
@@ -97,7 +116,8 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/about"
+        "/about",
+        "/credentials"
       ]
     },
     "/": {
@@ -105,6 +125,9 @@ export const routeTree = rootRoute
     },
     "/about": {
       "filePath": "about.tsx"
+    },
+    "/credentials": {
+      "filePath": "credentials.tsx"
     }
   }
 }

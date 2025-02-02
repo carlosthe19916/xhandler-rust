@@ -7,6 +7,8 @@ export default defineConfig({
   plugins: [TanStackRouterVite({ autoCodeSplitting: true }), react()],
   resolve: {
     alias: {
+      "@client": "/src/client",
+      "@queries": "/src/queries",
       "@app": "/src/app",
     },
   },

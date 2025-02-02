@@ -23,6 +23,8 @@
     "noUncheckedSideEffectImports": true,
 
     "paths": {
+      "@client/*": ["./src/client/*"],
+      "@queries/*": ["./src/queries/*"],
       "@app/*": ["./src/app/*"]
     }
   },

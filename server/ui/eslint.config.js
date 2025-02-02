@@ -40,9 +40,7 @@ export default tseslint.config(
       "prettier/prettier": [
         "warn",
         {
-          semi: false,
           singleQuote: false,
-          trailingComma: "es5",
         },
       ],
     },
