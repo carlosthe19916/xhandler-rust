@@ -8,8 +8,10 @@
   "workspaceFolder": "/workspace",
   "onCreateCommand": "bash .devcontainer/onCreateCommand.sh",
   "postCreateCommand": "bash .devcontainer/postCreateCommand.sh",
+  "postStartCommand": "bash .devcontainer/postStartCommand.sh",
   "forwardPorts": [
-    8080
+    8080,
+    5173
   ],
   "customizations": {
     "jetbrains": {
