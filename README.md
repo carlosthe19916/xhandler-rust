@@ -17,6 +17,12 @@ XMLs basados en UBL y SUNAT
 cargo run --bin server
 ```
 
+## Server UI
+
+```shell
+npm run dev --prefix server/ui
+```
+
 ## License
 
 - [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
